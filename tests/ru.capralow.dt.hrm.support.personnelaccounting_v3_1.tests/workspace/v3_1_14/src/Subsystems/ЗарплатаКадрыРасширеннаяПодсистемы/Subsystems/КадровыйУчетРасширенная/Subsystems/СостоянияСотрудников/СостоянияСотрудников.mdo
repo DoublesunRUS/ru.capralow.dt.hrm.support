@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="7078919d-ac4b-43b2-8076-b14c92f7ab75">
+  <name>СостоянияСотрудников</name>
+  <synonym>
+    <key>ru</key>
+    <value>Состояния сотрудников</value>
+  </synonym>
+  <comment>Учет состояний сотрудников</comment>
+  <includeHelpInContents>true</includeHelpInContents>
+  <explanation>
+    <key>ru</key>
+    <value>Подсистема обеспечивает учет состояний сотрудника в организации</value>
+  </explanation>
+  <content>InformationRegister.СостоянияСотрудников</content>
+  <content>InformationRegister.ДанныеСостоянийСотрудников</content>
+  <content>CommonModule.СостоянияСотрудников</content>
+  <content>Role.ДобавлениеИзменениеСостоянийСотрудников</content>
+  <content>Role.ЧтениеСостоянийСотрудников</content>
+  <content>Report.СостоянияСотрудников</content>
+  <content>CommonForm.ПроверкаПересеченияПериодовОтсутствияСотрудников</content>
+  <content>InformationRegister.ДанныеСостоянийСотрудниковИспр</content>
+  <content>DefinedType.ОснованиеСостоянийСотрудников</content>
+  <parentSubsystem>Subsystem.ЗарплатаКадрыРасширеннаяПодсистемы.Subsystem.КадровыйУчетРасширенная</parentSubsystem>
+</mdclass:Subsystem>

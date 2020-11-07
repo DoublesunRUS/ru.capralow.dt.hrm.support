@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="com._1c.g5.v8.dt.ql.qlRuntimeModuleExtension1">
+      <externalValidator
+            class="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ExecutableExtensionFactory:ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.qlvalidator.PrivateMetadataQlModule">
+      </externalValidator>
+   </extension>
+</plugin>

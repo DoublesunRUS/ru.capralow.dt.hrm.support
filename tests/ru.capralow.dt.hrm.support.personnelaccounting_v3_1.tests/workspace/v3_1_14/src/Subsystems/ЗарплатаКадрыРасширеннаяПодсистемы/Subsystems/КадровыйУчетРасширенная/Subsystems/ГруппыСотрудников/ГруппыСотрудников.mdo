@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="414354c7-c918-4eec-9097-1913367b6553">
+  <name>ГруппыСотрудников</name>
+  <synonym>
+    <key>ru</key>
+    <value>Группы сотрудников</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <content>Catalog.ГруппыСотрудников</content>
+  <content>InformationRegister.СоставГруппСотрудников</content>
+  <content>CommonModule.ГруппыСотрудников</content>
+  <content>CommonPicture.ПиктограммыГруппСотрудников</content>
+  <content>CommonModule.ГруппыСотрудниковВызовСервера</content>
+  <content>Role.НастройкаГруппСотрудников</content>
+  <parentSubsystem>Subsystem.ЗарплатаКадрыРасширеннаяПодсистемы.Subsystem.КадровыйУчетРасширенная</parentSubsystem>
+</mdclass:Subsystem>

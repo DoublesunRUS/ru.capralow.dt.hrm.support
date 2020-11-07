@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="99117454-a356-4448-be81-9201fcbb4f62">
+  <name>ЭлектронныеТрудовыеКнижки</name>
+  <synonym>
+    <key>ru</key>
+    <value>Электронные трудовые книжки</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижки</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиКлиент</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиВызовСервера</content>
+  <content>InformationRegister.ЗаявленияОВеденииТрудовыхКнижек</content>
+  <content>InformationRegister.ЗаявленияОВеденииТрудовыхКнижекОтозванные</content>
+  <content>Document.ОтзывЗаявленийОПредоставленииСведенийОТрудовойДеятельности</content>
+  <content>InformationRegister.ЗаявленияОВеденииТрудовыхКнижекПереданные</content>
+  <content>Catalog.ОтзывЗаявленийОПредоставленииСведенийОТрудовойДеятельностиПрисоединенныеФайлы</content>
+  <content>Document.ЗаявленияОПредоставленииСведенийОТрудовойДеятельности</content>
+  <content>Catalog.ЗаявленияОПредоставленииСведенийОТрудовойДеятельностиПрисоединенныеФайлы</content>
+  <content>Catalog.СведенияОТрудовойДеятельностиРаботникаСТД_РПрисоединенныеФайлы</content>
+  <content>Catalog.ТрудовыеФункции</content>
+  <content>Document.СведенияОТрудовойДеятельностиРаботникаСТД_Р</content>
+  <content>DocumentJournal.ЭлектронныеТрудовыеКнижки</content>
+  <content>Enum.ВидыМероприятийТрудовойДеятельности</content>
+  <content>Role.ДобавлениеИзменениеДанныхОТрудовойДеятельности</content>
+  <content>Role.ЧтениеДанныхОТрудовойДеятельности</content>
+  <content>InformationRegister.МероприятияТрудовойДеятельности</content>
+  <content>InformationRegister.МероприятияТрудовойДеятельностиПереданные</content>
+  <content>InformationRegister.МероприятияТрудовойДеятельностиПрочие</content>
+  <content>Document.РегистрацияТрудовойДеятельности</content>
+  <content>Catalog.РегистрацияТрудовойДеятельностиПрисоединенныеФайлы</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиКлиентСервер</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиПовтИсп</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиВнутренний</content>
+  <content>CommonModule.ЭлектронныеТрудовыеКнижкиБазовый</content>
+  <content>Enum.ВидыЗаявленийОПредоставленииСведенийОТрудовойДеятельности</content>
+  <content>InformationRegister.НастройкиЭлектронныхТрудовыхКнижек</content>
+  <content>DataProcessor.ИмпортСведенийОТрудовойДеятельности</content>
+  <content>DefinedType.ЗаявлениеОВеденииТрудовойКнижки</content>
+  <parentSubsystem>Subsystem.ЗарплатаКадрыПодсистемы.Subsystem.КадровыйУчет</parentSubsystem>
+</mdclass:Subsystem>

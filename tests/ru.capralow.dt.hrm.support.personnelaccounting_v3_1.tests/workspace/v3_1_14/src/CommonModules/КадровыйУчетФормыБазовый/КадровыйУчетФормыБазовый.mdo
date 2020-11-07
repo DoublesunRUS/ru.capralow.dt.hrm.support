@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="a2238123-59fd-49a1-b67d-3b3df0b4f9ac">
+  <name>КадровыйУчетФормыБазовый</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кадровый учет формы базовый</value>
+  </synonym>
+  <server>true</server>
+  <externalConnection>true</externalConnection>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>

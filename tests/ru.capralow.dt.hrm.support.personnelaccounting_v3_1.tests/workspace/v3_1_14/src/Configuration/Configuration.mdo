@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Configuration xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="b1fdf10e-ef36-4a59-a1ae-b02d45983d49">
+  <name>КадровыйУчет_3_1_14</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кадровый учет 3.1.14</value>
+  </synonym>
+  <containedObjects classId="9cd510cd-abfc-11d4-9434-004095e12fc7" objectId="c85645c5-3574-47e8-ba7b-c24e74d9aaea"/>
+  <containedObjects classId="9fcd25a0-4822-11d4-9414-008048da11f9" objectId="132cb3fa-9db1-4f76-9851-fb92487cca74"/>
+  <containedObjects classId="e3687481-0a87-462c-a166-9f34594f9bba" objectId="e2847368-019a-4954-8dd9-e6c6f31cf059"/>
+  <containedObjects classId="9de14907-ec23-4a07-96f0-85521cb6b53b" objectId="5b839223-4eea-4ca3-ba4f-655d35af8940"/>
+  <containedObjects classId="51f2d5d8-ea4d-4064-8892-82951750031e" objectId="3f1ae7ba-48e4-486f-936a-a7c038154d39"/>
+  <containedObjects classId="e68182ea-4237-4383-967f-90c1e3370bc7" objectId="854e9774-f1b6-4f07-8a34-c4938ffd0289"/>
+  <configurationExtensionCompatibilityMode>8.3.14</configurationExtensionCompatibilityMode>
+  <defaultRunMode>ManagedApplication</defaultRunMode>
+  <usePurposes>PersonalComputer</usePurposes>
+  <scriptVariant>Russian</scriptVariant>
+  <version>3.1.14.265</version>
+  <includeHelpInContents>true</includeHelpInContents>
+  <useManagedFormInOrdinaryApplication>true</useManagedFormInOrdinaryApplication>
+  <defaultLanguage>Language.Русский</defaultLanguage>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <objectAutonumerationMode>NotAutoFree</objectAutonumerationMode>
+  <modalityUseMode>DontUse</modalityUseMode>
+  <interfaceCompatibilityMode>TaxiEnableVersion8_2</interfaceCompatibilityMode>
+  <compatibilityMode>8.3.14</compatibilityMode>
+  <languages uuid="35d4deef-5b93-4c11-ac42-07beb390c332">
+    <name>Русский</name>
+    <synonym>
+      <key>ru</key>
+      <value>Русский</value>
+    </synonym>
+    <languageCode>ru</languageCode>
+  </languages>
+  <subsystems>Subsystem.ЗарплатаКадрыПодсистемы</subsystems>
+  <subsystems>Subsystem.ЗарплатаКадрыРасширеннаяПодсистемы</subsystems>
+  <commonModules>CommonModule.КадровыйУчет</commonModules>
+  <commonModules>CommonModule.КадровыйУчетБазовый</commonModules>
+  <commonModules>CommonModule.КадровыйУчетВнутренний</commonModules>
+  <commonModules>CommonModule.КадровыйУчетВызовСервера</commonModules>
+  <commonModules>CommonModule.КадровыйУчетКлиент</commonModules>
+  <commonModules>CommonModule.КадровыйУчетКлиентСервер</commonModules>
+  <commonModules>CommonModule.КадровыйУчетКлиентСерверБазовый</commonModules>
+  <commonModules>CommonModule.КадровыйУчетКлиентСерверВнутренний</commonModules>
+  <commonModules>CommonModule.КадровыйУчетПовтИсп</commonModules>
+  <commonModules>CommonModule.КадровыйУчетРасширенный</commonModules>
+  <commonModules>CommonModule.КадровыйУчетРасширенныйВызовСервера</commonModules>
+  <commonModules>CommonModule.КадровыйУчетРасширенныйКлиент</commonModules>
+  <commonModules>CommonModule.КадровыйУчетРасширенныйКлиентСервер</commonModules>
+  <commonModules>CommonModule.КадровыйУчетФормы</commonModules>
+  <commonModules>CommonModule.КадровыйУчетФормыБазовый</commonModules>
+  <commonModules>CommonModule.КадровыйУчетФормыВнутренний</commonModules>
+  <commonModules>CommonModule.КадровыйУчетФормыРасширенный</commonModules>
+  <dataProcessors>DataProcessor.ТестИнтерфейсов</dataProcessors>
+  <informationRegisters>InformationRegister.КадроваяИсторияСотрудников</informationRegisters>
+</mdclass:Configuration>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="26e982bb-38a6-44e3-8608-ea75272601d1">
+  <name>ВоинскийУчет</name>
+  <synonym>
+    <key>ru</key>
+    <value>Воинский учет</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <content>Catalog.Военкоматы</content>
+  <content>Catalog.ЗванияГражданскогоВоинскогоУчета</content>
+  <content>Catalog.СоставыВоеннослужащих</content>
+  <content>Role.ДобавлениеИзменениеВоинскогоУчета</content>
+  <content>Role.НастройкаВоинскогоУчета</content>
+  <content>Role.ЧтениеВоинскогоУчета</content>
+  <content>FunctionalOption.ИспользоватьБронированиеГраждан</content>
+  <content>FunctionalOption.ИспользоватьВоинскийУчет</content>
+  <content>Enum.ГодностьКВоеннойСлужбе</content>
+  <content>Enum.КатегорииДолжностейДляВоинскогоУчета</content>
+  <content>Enum.КатегорииЗапасаВоеннообязанных</content>
+  <content>Enum.ОтношениеКВоинскойОбязанности</content>
+  <content>Enum.ОтношениеКВоинскомуУчету</content>
+  <content>InformationRegister.ВоинскийУчет</content>
+  <content>InformationRegister.ИзменениеСведенийФизическихЛиц</content>
+  <content>Report.ВоинскийУчетОбщий</content>
+  <content>Report.АнализИзмененийЛичныхДанныхСотрудников</content>
+  <content>Enum.СтатусыЛистковСообщения</content>
+  <content>Enum.КатегорииСведенийОФизическихЛицах</content>
+  <content>Document.ЛистокСообщенияДляВоенкомата</content>
+  <content>InformationRegister.ПотребностьВСпециалистахНаПериодМобилизации</content>
+  <content>Catalog.ПереченьДолжностейДляБронированияГраждан</content>
+  <content>Enum.КатегорииДолжностейДляУчетаЗабронированных</content>
+  <content>Report.ВоинскийУчетБронирование</content>
+  <content>FunctionalOption.ИспользуетсяТрудЛетноПодъемногоСостава</content>
+  <content>FunctionalOption.ИспользуетсяТрудПлавсостава</content>
+  <content>Report.СведенияОбИзмененияхДляВоенкомата</content>
+  <content>Document.ХодатайствоОБронированииГражданПребывающихВЗапасе</content>
+  <content>Document.БронированиеГражданПребывающихВЗапасе</content>
+  <content>InformationRegister.БронированиеСотрудников</content>
+  <content>EventSubscription.ЗарегистрироватьИзменениеСоставаСемьиФизическогоЛица</content>
+  <content>EventSubscription.ЗарегистрироватьИзменениеОбразованияФизическогоЛица</content>
+  <content>EventSubscription.ЗарегистрироватьИзменениеАдресаФизическогоЛица</content>
+  <content>CommonModule.ВоинскийУчетСобытия</content>
+  <content>DataProcessor.ПечатьФормВоинскогоУчета</content>
+  <content>Document.ОтменаБронированияГражданПребывающихВЗапасе</content>
+  <content>DocumentJournal.БронированиеГражданПребывающихВЗапасе</content>
+  <content>Enum.КлассификаторВоинскихЗваний</content>
+  <content>InformationRegister.НастройкиВоинскогоУчета</content>
+  <content>CommonPicture.ВоинскийУчет48</content>
+  <content>CommonModule.ВоинскийУчет</content>
+  <content>Catalog.БронированиеГражданПребывающихВЗапасеПрисоединенныеФайлы</content>
+  <content>Catalog.ЛистокСообщенияДляВоенкоматаПрисоединенныеФайлы</content>
+  <content>Catalog.ОтменаБронированияГражданПребывающихВЗапасеПрисоединенныеФайлы</content>
+  <content>Catalog.ХодатайствоОБронированииГражданПребывающихВЗапасеПрисоединенныеФайлы</content>
+  <parentSubsystem>Subsystem.ЗарплатаКадрыРасширеннаяПодсистемы.Subsystem.КадровыйУчетРасширенная</parentSubsystem>
+</mdclass:Subsystem>

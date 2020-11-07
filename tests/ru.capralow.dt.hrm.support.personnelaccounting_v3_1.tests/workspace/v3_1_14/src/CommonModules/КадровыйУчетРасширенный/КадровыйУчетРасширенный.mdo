@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:CommonModule xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="f8ab4533-7973-4cd0-a618-74508c504ecc">
+  <name>КадровыйУчетРасширенный</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кадровый учет расширенный</value>
+  </synonym>
+  <server>true</server>
+  <externalConnection>true</externalConnection>
+  <clientOrdinaryApplication>true</clientOrdinaryApplication>
+</mdclass:CommonModule>
