@@ -32,8 +32,6 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import com._1c.g5.v8.dt.bsl.model.Module;
 import com._1c.g5.v8.dt.bsl.model.StringLiteral;
 import com._1c.g5.v8.dt.bsl.ui.menu.BslHandlerUtil;
-import com._1c.g5.v8.dt.core.platform.IV8ProjectManager;
-import com.google.inject.Inject;
 
 import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.BslModelUtils;
 import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.PersonnelAccountingUiPlugin;
@@ -41,9 +39,6 @@ import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.Personnel
 public class EditAttributesHandler
     extends AbstractHandler
 {
-
-    @Inject
-    private IV8ProjectManager projectManager;
 
     @Override
     public final Object execute(ExecutionEvent event) throws ExecutionException
@@ -81,7 +76,7 @@ public class EditAttributesHandler
             insertLength = Integer.max(node.getLength() - 2, 0);
         }
 
-        String currentAttributes = "";
+        String currentAttributes = ""; //$NON-NLS-1$
         try
         {
             currentAttributes = doc.get(insertPosition, insertLength);

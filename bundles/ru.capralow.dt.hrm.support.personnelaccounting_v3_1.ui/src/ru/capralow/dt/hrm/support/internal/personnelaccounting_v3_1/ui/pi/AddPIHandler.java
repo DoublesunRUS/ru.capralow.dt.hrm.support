@@ -45,11 +45,11 @@ public class AddPIHandler
     extends AbstractHandler
 {
     private static final String TEMPLATE_NAME_RU = "templateRU.txt"; //$NON-NLS-1$
-
     private static String templateContentRu;
-    private static final String TEMPLATE_NAME_EN = "templateEN.txt"; //$NON-NLS-1$
 
+    private static final String TEMPLATE_NAME_EN = "templateEN.txt"; //$NON-NLS-1$
     private static String templateContentEn;
+
     static
     {
         templateContentRu = readContents(getFileInputSupplier(TEMPLATE_NAME_RU), TEMPLATE_NAME_RU);
