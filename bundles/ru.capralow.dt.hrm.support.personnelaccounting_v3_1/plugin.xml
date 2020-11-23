@@ -3,8 +3,8 @@
 <plugin>
    <extension
          point="com._1c.g5.v8.dt.ql.qlRuntimeModuleExtension">
-      <externalValidator
-            class="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ExecutableExtensionFactory:ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.qlvalidator.PrivateMetadataQlModule">
-      </externalValidator>
+      <qlRuntimeModuleExtension
+            module="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ExecutableExtensionFactory:ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.qlvalidator.PrivateMetadataQlModule">
+      </qlRuntimeModuleExtension>
    </extension>
 </plugin>
