@@ -10,7 +10,7 @@ public class Messages
 {
 
     private static final String BUNDLE_NAME =
-        "ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.messages";//$NON-NLS-1$
+        "ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.messages"; //$NON-NLS-1$
 
     static
     {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 	<category-def name="ru.capralow.dt.plugin.category.public" label="Плагины для EDT"/>
-	<feature url="features/ru.capralow.dt.hrm.support.attachablecommands_1.0.0.qualifier.jar" id="ru.capralow.dt.hrm.support.attachablecommands.feature" version="1.0.0.qualifier">
+	<feature url="features/ru.capralow.dt.hrm.support.personnelaccounting_1.0.0.qualifier.jar" id="ru.capralow.dt.hrm.support.personnelaccounting.feature" version="1.0.0.qualifier">
 		<category name="ru.capralow.dt.plugin.category.public"/>
 	</feature>
 </site>

@@ -4,8 +4,8 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.ExecutableExtensionFactory:ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPIHandler"
-            id="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPIHandler"
+            defaultHandler="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.ExecutableExtensionFactory:ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPiHandler"
+            id="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPiHandler"
             name="%pi.command.name">
       </command>
   
@@ -25,7 +25,7 @@
             <menu
                   label="%pi.personellaccounting.label">
                <command
-                     commandId="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPIHandler"
+                     commandId="ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.pi.AddPiHandler"
                      style="push"
                      tooltip="%pi.command.tooltip">
                   <visibleWhen

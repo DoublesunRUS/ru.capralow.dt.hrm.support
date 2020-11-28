@@ -41,7 +41,7 @@ import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.BslModelU
 import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.MdUtils;
 import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.PersonnelAccountingUiPlugin;
 
-public class AddPIHandler
+public class AddPiHandler
     extends AbstractHandler
 {
     private static final String TEMPLATE_NAME_RU = "templateRU.txt"; //$NON-NLS-1$
@@ -58,7 +58,7 @@ public class AddPIHandler
 
     private static CharSource getFileInputSupplier(String partName)
     {
-        return Resources.asCharSource(AddPIHandler.class.getResource("/resources/" + partName), //$NON-NLS-1$
+        return Resources.asCharSource(AddPiHandler.class.getResource("/resources/" + partName), //$NON-NLS-1$
             StandardCharsets.UTF_8);
     }
 

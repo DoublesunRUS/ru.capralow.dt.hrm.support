@@ -42,29 +42,12 @@ import com._1c.g5.v8.dt.metadata.mdclass.BasicDbObject;
 import com._1c.g5.v8.dt.metadata.mdclass.CommonModule;
 import com._1c.g5.v8.dt.metadata.mdclass.Subsystem;
 
-public class BslModelUtils
+public final class BslModelUtils
 {
 
     private static DynamicFeatureAccessComputer dynamicFeatureAccessComputer =
         IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createURI("foo.bsl")).get( //$NON-NLS-1$
             DynamicFeatureAccessComputer.class);
-
-    public static void parseStatements(Method method, List<String> objectsList, IV8Project v8Project)
-    {
-        EList<FormalParam> methodParams = method.getFormalParams();
-        if (methodParams.isEmpty())
-            return;
-
-        Map<String, String> modulesAliases = new HashMap<>(); // Поддержка ОбщегоНазначения.ОбщийМодуль()
-
-        String variableName = methodParams.get(0).getName();
-
-        for (Statement statement : method.getStatements())
-            if (statement instanceof IfStatement)
-                parseIfStatement(statement, variableName, objectsList, modulesAliases, v8Project);
-            else
-                parseSimpleStatement(statement, variableName, objectsList, modulesAliases, v8Project);
-    }
 
     private static void parseIfStatement(Statement statement, String variableName, List<String> objectsList,
         Map<String, String> modulesAliases, IV8Project v8Project)
@@ -193,6 +176,23 @@ public class BslModelUtils
             }
 
         }
+    }
+
+    public static void parseStatements(Method method, List<String> objectsList, IV8Project v8Project)
+    {
+        EList<FormalParam> methodParams = method.getFormalParams();
+        if (methodParams.isEmpty())
+            return;
+
+        Map<String, String> modulesAliases = new HashMap<>(); // Поддержка ОбщегоНазначения.ОбщийМодуль()
+
+        String variableName = methodParams.get(0).getName();
+
+        for (Statement statement : method.getStatements())
+            if (statement instanceof IfStatement)
+                parseIfStatement(statement, variableName, objectsList, modulesAliases, v8Project);
+            else
+                parseSimpleStatement(statement, variableName, objectsList, modulesAliases, v8Project);
     }
 
     private static Boolean parseSubsystemExistsStatement(IfStatement ifStatement, IV8Project v8Project)

@@ -10,7 +10,7 @@ public class Messages
 {
 
     private static final String BUNDLE_NAME =
-        "ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.messages";//$NON-NLS-1$
+        "ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.messages"; //$NON-NLS-1$
 
     public static String Failed_to_create_injector_for_0;
     public static String Internal_class;

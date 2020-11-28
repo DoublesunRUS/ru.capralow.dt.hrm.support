@@ -31,7 +31,7 @@ public class HrmVersionCheckerTests {
 
 		IV8Project v8Project = v8ProjectManager.getProject(testingWorkspace.getProject("v2_4_1")); //$NON-NLS-1$
 
-		boolean result = HrmVersionChecker.checkSslVersion(v8Project, startVersion);
+		boolean result = HrmVersionChecker.checkHrmVersion(v8Project, startVersion);
 
 		Assert.assertFalse("Проверяемая версия должна быть меньше текущей", result);
 	}
@@ -42,7 +42,7 @@ public class HrmVersionCheckerTests {
 
 		IV8Project v8Project = v8ProjectManager.getProject(testingWorkspace.getProject("v2_4_1")); //$NON-NLS-1$
 
-		boolean result = HrmVersionChecker.checkSslVersion(v8Project, startVersion, endVersion);
+		boolean result = HrmVersionChecker.checkHrmVersion(v8Project, startVersion, endVersion);
 
 		Assert.assertFalse("Проверяемая версия не должна входить в диапазон", result);
 	}
@@ -53,7 +53,7 @@ public class HrmVersionCheckerTests {
 
 		IV8Project v8Project = v8ProjectManager.getProject(testingWorkspace.getProject("v2_4_1")); //$NON-NLS-1$
 
-		boolean result = HrmVersionChecker.checkSslVersion(v8Project, startVersion);
+		boolean result = HrmVersionChecker.checkHrmVersion(v8Project, startVersion);
 
 		Assert.assertTrue("Проверяемая версия должна быть больше или равна текущей", result);
 	}
@@ -64,7 +64,7 @@ public class HrmVersionCheckerTests {
 
 		IV8Project v8Project = v8ProjectManager.getProject(testingWorkspace.getProject("v2_4_1")); //$NON-NLS-1$
 
-		boolean result = HrmVersionChecker.checkSslVersion(v8Project, startVersion, endVersion);
+		boolean result = HrmVersionChecker.checkHrmVersion(v8Project, startVersion, endVersion);
 
 		Assert.assertTrue("Проверяемая версия должна входить в диапазон", result);
 	}

@@ -11,6 +11,6 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>ru.capralow.dt.hrm.support.attachablecommands_v2_4_1.tests</artifactId>
+	<artifactId>ru.capralow.dt.hrm.support.personnelaccounting_v3_1.ui.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 </project>

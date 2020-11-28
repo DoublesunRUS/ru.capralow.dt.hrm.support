@@ -21,7 +21,7 @@
 	</properties>
 
 	<modules>
-		<module>ru.capralow.dt.hrm.support.feature</module>
+		<module>ru.capralow.dt.hrm.support.personnelaccounting.feature</module>
 	</modules>
 
 </project>
