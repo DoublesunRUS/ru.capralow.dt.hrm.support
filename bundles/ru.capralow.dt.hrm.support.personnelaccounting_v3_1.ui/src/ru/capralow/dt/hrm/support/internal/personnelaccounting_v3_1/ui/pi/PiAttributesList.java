@@ -11,6 +11,21 @@ import ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui.Messages;
 public final class PiAttributesList
 {
 
+    public static Map<String, String> getMandatoryAttributes(String piMethodName)
+    {
+        Map<String, String> attributes = new HashMap<>();
+
+        if (piMethodName.equalsIgnoreCase("СоздатьВТКадровыеДанныеСотрудников")) //$NON-NLS-1$
+        {
+            // ЭтоОбязательноеПолеКадровыхДанныхСотрудника
+            attributes.put("Период", "Дата"); //$NON-NLS-1$ //$NON-NLS-2$
+            attributes.put("Сотрудник", "СправочникСсылка.Сотрудники"); //$NON-NLS-1$ //$NON-NLS-2$
+            attributes.put("ФизическоеЛицо", "СправочникСсылка.ФизическиеЛица"); //$NON-NLS-1$ //$NON-NLS-2$
+        }
+
+        return attributes;
+    }
+
     public static Map<String, String> getSelectableAttributes(String piMethodName)
     {
         Map<String, String> attributes = new HashMap<>();
@@ -25,7 +40,7 @@ public final class PiAttributesList
             attributes.put("ТекущаяОрганизация", "СправочникСсылка.Организации"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ТекущееПодразделение", "СправочникСсылка.ПодразделенияОрганизаций"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ТекущаяДолжность", "СправочникСсылка.Должности"); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put("ТекущийВидЗанятости", "ПеречисленияСсылка.ВидыЗанятости"); //$NON-NLS-1$ //$NON-NLS-2$
+            attributes.put("ТекущийВидЗанятости", "ПеречислениеСсылка.ВидыЗанятости"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ОсновноеРабочееМестоВОрганизации", "Булево"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ОформленПоТрудовомуДоговору", "Булево"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ТекущаяДолжностьПоШтатномуРасписанию", "СправочникСсылка.ШтатноеРасписание"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -223,8 +238,8 @@ public final class PiAttributesList
             attributes.put("Организация", "СправочникСсылка.Организации"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("Подразделение", "СправочникСсылка.ПодразделенияОрганизаций"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("Должность", "СправочникСсылка.Должности"); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put("ВидЗанятости", "ПеречисленияСсылка.ВидыЗанятости"); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put("ВидСобытия", "ПеречисленияСсылка.ВидыКадровыхСобытий"); //$NON-NLS-1$ //$NON-NLS-2$
+            attributes.put("ВидЗанятости", "ПеречислениеСсылка.ВидыЗанятости"); //$NON-NLS-1$ //$NON-NLS-2$
+            attributes.put("ВидСобытия", "ПеречислениеСсылка.ВидыКадровыхСобытий"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("КоличествоСтавок", "Число"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ДолжностьПоШтатномуРасписанию", "СправочникСсылка.ШтатноеРасписани"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("ВидДоговора", "ПеречислениеСсылка.ВидыДоговоровССотрудникам"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -322,21 +337,6 @@ public final class PiAttributesList
             attributes.put("КлассУсловийТрудаПериодРегистрации", "Дата"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("КлассУсловийТруда", "ПеречислениеСсылка.КлассыУсловийТрудаПоРезультатамСпециальнойОценки"); //$NON-NLS-1$ //$NON-NLS-2$
             attributes.put("КлассУсловийТрудаДатаРегистрацииИзменений", "Дата"); //$NON-NLS-1$ //$NON-NLS-2$
-        }
-
-        return attributes;
-    }
-
-    public static Map<String, String> getMandatoryAttributes(String piMethodName)
-    {
-        Map<String, String> attributes = new HashMap<>();
-
-        if (piMethodName.equalsIgnoreCase("СоздатьВТКадровыеДанныеСотрудников")) //$NON-NLS-1$
-        {
-            // ЭтоОбязательноеПолеКадровыхДанныхСотрудника
-            attributes.put("Период", "Дата"); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put("Сотрудник", "СправочникСсылка.Сотрудники"); //$NON-NLS-1$ //$NON-NLS-2$
-            attributes.put("ФизическоеЛицо", "СправочникСсылка.ФизическиеЛица"); //$NON-NLS-1$ //$NON-NLS-2$
         }
 
         return attributes;
