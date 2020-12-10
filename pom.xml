@@ -24,7 +24,6 @@
 		<module>bundles</module>
 		<module>features</module>
 		<module>repositories</module>
-		<module>tests</module>
 	</modules>
 
 	<build>

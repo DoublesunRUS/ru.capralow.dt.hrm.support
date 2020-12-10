@@ -4,6 +4,7 @@
 package ru.capralow.dt.hrm.support.internal.personnelaccounting_v3_1.ui;
 
 import java.text.MessageFormat;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,14 +14,17 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.DerivedStateAwareResource;
 import org.eclipse.xtext.resource.IResourceServiceProvider;
 
+import com._1c.g5.v8.dt.bsl.model.BslPackage;
 import com._1c.g5.v8.dt.bsl.model.Conditional;
 import com._1c.g5.v8.dt.bsl.model.DynamicFeatureAccess;
 import com._1c.g5.v8.dt.bsl.model.EmptyStatement;
@@ -37,11 +41,14 @@ import com._1c.g5.v8.dt.bsl.model.SourceObjectLinkProvider;
 import com._1c.g5.v8.dt.bsl.model.Statement;
 import com._1c.g5.v8.dt.bsl.model.StaticFeatureAccess;
 import com._1c.g5.v8.dt.bsl.model.StringLiteral;
+import com._1c.g5.v8.dt.bsl.resource.BslResolveCrossReferencesJob;
+import com._1c.g5.v8.dt.bsl.resource.BslResource;
 import com._1c.g5.v8.dt.bsl.resource.DynamicFeatureAccessComputer;
 import com._1c.g5.v8.dt.core.platform.IV8Project;
 import com._1c.g5.v8.dt.lcore.nodemodel.util.CustomNodeModelUtils;
 import com._1c.g5.v8.dt.mcore.DerivedProperty;
 import com._1c.g5.v8.dt.mcore.Environmental;
+import com._1c.g5.v8.dt.mcore.McorePackage;
 import com._1c.g5.v8.dt.md.resource.MdTypeUtil;
 import com._1c.g5.v8.dt.metadata.mdclass.BasicDbObject;
 import com._1c.g5.v8.dt.metadata.mdclass.CommonModule;
@@ -54,15 +61,93 @@ public final class BslModelUtils
         IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createURI("foo.bsl")).get( //$NON-NLS-1$
             DynamicFeatureAccessComputer.class);
 
+    public static void customResolveLazyCrossReferences(Resource resource)
+    {
+        BslResource bslResource = (BslResource)resource;
+
+        EcoreUtil2.resolveLazyCrossReferences(bslResource, null);
+        Collection<BslResolveCrossReferencesJob> jobs = BslResolveCrossReferencesJob.findJobsByResource(bslResource);
+        for (BslResolveCrossReferencesJob job : jobs)
+            try
+            {
+                job.join();
+            }
+            catch (InterruptedException e)
+            {
+                PersonnelAccountingUiPlugin.log(PersonnelAccountingUiPlugin.createErrorStatus(e.getMessage(), e));
+            }
+    }
+
+    public static INode getEndBracketParamsNode(Method method)
+    {
+        List<INode> nodesBefore = null;
+        if (!method.getFormalParams().isEmpty())
+            nodesBefore = NodeModelUtils.findNodesForFeature(method, BslPackage.Literals.METHOD__FORMAL_PARAMS);
+        else
+            nodesBefore = NodeModelUtils.findNodesForFeature(method, McorePackage.Literals.NAMED_ELEMENT__NAME);
+
+        if (nodesBefore.isEmpty())
+            return null;
+
+        int searchFrom = nodesBefore.get(nodesBefore.size() - 1).getTotalEndOffset();
+        INode methodNode = NodeModelUtils.findActualNodeFor(method);
+        INode bracketNode = null;
+        for (ILeafNode leafNode : methodNode.getLeafNodes())
+        {
+            if (leafNode.getOffset() < searchFrom || leafNode.isHidden() || leafNode.getLength() > 1)
+                continue;
+            if (")".equals(leafNode.getText())) //$NON-NLS-1$
+            {
+                bracketNode = leafNode;
+                break;
+            }
+        }
+        return bracketNode;
+    }
+
+    public static Statement getNearestStatement(Method method, int offset)
+    {
+        ICompositeNode methodNode = NodeModelUtils.findActualNodeFor(method);
+        ILeafNode node = CustomNodeModelUtils.findLeafNodeAtOffset(methodNode, offset);
+        EObject actualObject = NodeModelUtils.findActualSemanticObjectFor(node);
+        if (actualObject instanceof Method)
+        {
+            EList<Statement> allStatements = ((Method)actualObject).allStatements();
+            if (!allStatements.isEmpty())
+                actualObject = allStatements.get(allStatements.size() - 1);
+        }
+        if (actualObject instanceof Statement)
+            return (Statement)actualObject;
+
+        return EcoreUtil2.getContainerOfType(actualObject, Statement.class);
+    }
+
     public static Statement getNearestStatement(Module module, int offset)
     {
         ICompositeNode moduleNode = NodeModelUtils.findActualNodeFor(module);
         ILeafNode node = CustomNodeModelUtils.findLeafNodeAtOffset(moduleNode, offset);
         EObject actualObject = NodeModelUtils.findActualSemanticObjectFor(node);
+        if (actualObject instanceof Method)
+        {
+            EList<Statement> allStatements = ((Method)actualObject).allStatements();
+            if (!allStatements.isEmpty())
+                actualObject = allStatements.get(allStatements.size() - 1);
+        }
         if (actualObject instanceof Statement)
             return (Statement)actualObject;
 
         return EcoreUtil2.getContainerOfType(actualObject, Statement.class);
+    }
+
+    public static StringLiteral getNearestStringLiteral(Method method, int offset)
+    {
+        ICompositeNode methodNode = NodeModelUtils.findActualNodeFor(method);
+        ILeafNode node = CustomNodeModelUtils.findLeafNodeAtOffset(methodNode, offset);
+        EObject actualObject = NodeModelUtils.findActualSemanticObjectFor(node);
+        if (actualObject instanceof StringLiteral)
+            return (StringLiteral)actualObject;
+
+        return EcoreUtil2.getContainerOfType(actualObject, StringLiteral.class);
     }
 
     public static StringLiteral getNearestStringLiteral(Module module, int offset)
@@ -74,6 +159,23 @@ public final class BslModelUtils
             return (StringLiteral)actualObject;
 
         return EcoreUtil2.getContainerOfType(actualObject, StringLiteral.class);
+    }
+
+    public static void parseStatements(Method method, List<String> objectsList, IV8Project v8Project)
+    {
+        EList<FormalParam> methodParams = method.getFormalParams();
+        if (methodParams.isEmpty())
+            return;
+
+        Map<String, String> modulesAliases = new HashMap<>(); // Поддержка ОбщегоНазначения.ОбщийМодуль()
+
+        String variableName = methodParams.get(0).getName();
+
+        for (Statement statement : method.getStatements())
+            if (statement instanceof IfStatement)
+                parseIfStatement(statement, variableName, objectsList, modulesAliases, v8Project);
+            else
+                parseSimpleStatement(statement, variableName, objectsList, modulesAliases, v8Project);
     }
 
     private static void parseIfStatement(Statement statement, String variableName, List<String> objectsList,
@@ -108,7 +210,10 @@ public final class BslModelUtils
             if (commonModule == null)
                 return;
 
-            method = MdUtils.getMethod(commonModule.getModule(), dynamicMethodAccess.getName());
+            Module module = commonModule.getModule();
+            customResolveLazyCrossReferences(module.eResource());
+
+            method = MdUtils.getMethod(module, dynamicMethodAccess.getName());
             if (method == null)
                 return;
 
@@ -135,7 +240,12 @@ public final class BslModelUtils
         List<FeatureEntry> featureEntries = dynamicFeatureAccessComputer.resolveObject(staticMethodAccess,
             EcoreUtil2.getContainerOfType(staticMethodAccess, Environmental.class).environments());
         if (featureEntries.isEmpty())
-            return;
+        {
+            String errorMessage = "DynamicFeatureAccessComputer не смог получить FeatureEntries";
+            IllegalStateException exception = new IllegalStateException();
+            PersonnelAccountingUiPlugin.log(PersonnelAccountingUiPlugin.createErrorStatus(errorMessage, exception));
+            throw exception;
+        }
 
         FeatureEntry featureEntry = featureEntries.get(0);
         EObject feature = featureEntry.getFeature();
@@ -185,11 +295,20 @@ public final class BslModelUtils
                     List<FeatureEntry> featureEntries = dynamicFeatureAccessComputer.resolveObject(firstParam,
                         EcoreUtil2.getContainerOfType(firstParam, Environmental.class).environments());
                     if (featureEntries.isEmpty())
-                        return;
+                    {
+                        String errorMessage = "DynamicFeatureAccessComputer не смог получить FeatureEntries";
+                        IllegalStateException exception = new IllegalStateException();
+                        PersonnelAccountingUiPlugin.log(
+                            PersonnelAccountingUiPlugin.createErrorStatus(errorMessage, exception));
+                        throw exception;
+                    }
+
                     FeatureEntry featureEntry = featureEntries.get(0);
                     DerivedProperty deriveredProperty = (DerivedProperty)featureEntry.getFeature();
                     BasicDbObject objectOwner =
                         EcoreUtil2.getContainerOfType(deriveredProperty.getSource(), BasicDbObject.class);
+                    if (objectOwner == null)
+                        return;
 
                     objectsList.add(MdTypeUtil.getRefType(objectOwner).getName());
                 }
@@ -205,26 +324,9 @@ public final class BslModelUtils
         }
     }
 
-    public static void parseStatements(Method method, List<String> objectsList, IV8Project v8Project)
+    private static boolean parseSubsystemExistsStatement(IfStatement ifStatement, IV8Project v8Project)
     {
-        EList<FormalParam> methodParams = method.getFormalParams();
-        if (methodParams.isEmpty())
-            return;
-
-        Map<String, String> modulesAliases = new HashMap<>(); // Поддержка ОбщегоНазначения.ОбщийМодуль()
-
-        String variableName = methodParams.get(0).getName();
-
-        for (Statement statement : method.getStatements())
-            if (statement instanceof IfStatement)
-                parseIfStatement(statement, variableName, objectsList, modulesAliases, v8Project);
-            else
-                parseSimpleStatement(statement, variableName, objectsList, modulesAliases, v8Project);
-    }
-
-    private static Boolean parseSubsystemExistsStatement(IfStatement ifStatement, IV8Project v8Project)
-    {
-        Boolean trueStatement = true;
+        boolean trueStatement = true;
 
         Conditional ifPart = ifStatement.getIfPart();
         Invocation predicate = (Invocation)ifPart.getPredicate();
